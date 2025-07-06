@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import IncomeOverview from "../../components/Income/IncomeOverview";
+import IncomeOverview from "../../components/income/IncomeOverview";
 import IncomeList from "../../components/income/IncomeList";
 import AddIncomeModal from "../../components/income/AddIncomeForm";
 import Modal from "../../components/Modal";

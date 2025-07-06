@@ -1,5 +1,5 @@
 // C:\Expense-Tracker-App\frontend\src\pages\Dashboard\Expense.jsx
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";

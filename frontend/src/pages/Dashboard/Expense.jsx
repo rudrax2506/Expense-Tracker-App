@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import IncomeOverview from "../../components/expense/ExpenseOverview";
 import ExpenseList from "../../components/expense/ExpenseList";
 import ExpenseOverview from "../../components/expense/ExpenseOverview";
 import AddExpenseForm from "../../components/expense/AddExpenseForm";

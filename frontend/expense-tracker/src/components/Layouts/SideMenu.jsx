@@ -6,19 +6,18 @@ import CharAvatar from "../Cards/CharAvatar";
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleClick = (route) => {
     if (route === "logout") {
-      handelLogout();
+      handleLogout();
       return;
     }
 
     navigate(route);
   };
 
-  const handelLogout = () => {
+  const handleLogout = () => {
     localStorage.clear();
     clearUser();
     navigate("/login");
@@ -35,7 +34,7 @@ const SideMenu = ({ activeMenu }) => {
           />
         ) : (
           <CharAvatar
-            fullName={fullname}
+            fullName={user?.fullName}
             width="w-20"
             height="h-20"
             style="text-xl"
@@ -43,7 +42,7 @@ const SideMenu = ({ activeMenu }) => {
         )}
 
         <h5 className="text-gray-950 font-medium leading-6">
-          {user.fullName || ""}
+          {user?.fullName || ""}
         </h5>
       </div>
 
@@ -51,7 +50,7 @@ const SideMenu = ({ activeMenu }) => {
         <button
           key={`menu_${index}`}
           className={`w-full flex items-center gap-4 text-[15px] ${
-            activeMenu == item.label ? "text-white bg-primary" : ""
+            activeMenu === item.label ? "text-white bg-primary" : ""
           } py-3 px-6 rounded-lg mb-3`}
           onClick={() => handleClick(item.path)}
         >

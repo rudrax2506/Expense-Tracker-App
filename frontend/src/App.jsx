@@ -5,9 +5,9 @@ import {
   Navigate,
 } from "react-router-dom";
 import React from "react";
-import LoginForm from "./pages/auth/LoginForm";
-import SignUpForm from "./pages/auth/SignUpForm";
-import UserProvider from "./context/UserContext";
+import LoginForm from "./pages/auth/loginForm";
+import SignUpForm from "./pages/auth/signUpForm";
+import UserProvider from "./context/userContext";
 
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/dashboard/Home";

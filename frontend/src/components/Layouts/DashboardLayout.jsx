@@ -1,3 +1,4 @@
+// C:\Expense-Tracker-App\frontend\src\components\layouts\DashboardLayout.jsx
 import React, { useContext } from "react";
 import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";

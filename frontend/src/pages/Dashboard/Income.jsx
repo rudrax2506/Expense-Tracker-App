@@ -1,6 +1,6 @@
+// C:\Expense-Tracker-App\frontend\src\pages\Dashboard\Income.jsx
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
-
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";

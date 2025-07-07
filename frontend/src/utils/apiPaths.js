@@ -1,4 +1,5 @@
 export const BASE_URL = "https://expense-tracker-app-backend-fprw.onrender.com";
+export const FRONTEND_URL = "https://expense-tracker-app-client.onrender.com";
 
 // utils/apiPaths.js
 export const API_PATHS = {

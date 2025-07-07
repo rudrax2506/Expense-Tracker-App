@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import AuthLayout from "../../components/Layouts/AuthLayout";
+import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../../components/Inputs/Input";
+import Input from "../../components/inputs/Input";
 import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
@@ -85,7 +85,7 @@ const LoginForm = () => {
           </button>
 
           <p className="text-[13px] text-slate-800 mt-3">
-            Don’t have an account?{" "}
+            Don't have an account?{" "}
             <Link className="font-medium text-primary underline" to="/signup">
               SignUp
             </Link>

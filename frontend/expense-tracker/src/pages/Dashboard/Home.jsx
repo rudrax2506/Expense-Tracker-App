@@ -10,12 +10,12 @@ import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { addThousandsSeparator } from "../../utils/helper";
-import RecentTransactions from "../../components/dashboard/RecentTransactions";
-import FinanceOverview from "../../components/dashboard/FinanceOverview";
-import ExpenseTransactions from "../../components/dashboard/ExpenseTransactions";
-import Last30DaysExpenses from "../../components/dashboard/Last30DaysExpenses";
-import RecentIncome from "../../components/dashboard/RecentIncome";
-import RecentIncomeWithChart from "../../components/dashboard/RecentIncomeWithChart";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions";
+import FinanceOverview from "../../components/Dashboard/FinanceOverview";
+import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions";
+import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
+import RecentIncome from "../../components/Dashboard/RecentIncome";
+import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithChart";
 
 const Home = () => {
   useUserAuth();

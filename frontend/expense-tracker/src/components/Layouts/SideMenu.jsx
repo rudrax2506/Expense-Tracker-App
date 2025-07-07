@@ -2,22 +2,23 @@ import React, { useContext } from "react";
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
-import CharAvatar from "../cards/CharAvatar";
+import CharAvatar from "../Cards/CharAvatar";
 
 const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const handleClick = (route) => {
     if (route === "logout") {
-      handleLogout();
+      handelLogout();
       return;
     }
 
     navigate(route);
   };
 
-  const handleLogout = () => {
+  const handelLogout = () => {
     localStorage.clear();
     clearUser();
     navigate("/login");
@@ -34,7 +35,7 @@ const SideMenu = ({ activeMenu }) => {
           />
         ) : (
           <CharAvatar
-            fullName={user?.fullName}
+            fullName={fullname}
             width="w-20"
             height="h-20"
             style="text-xl"
@@ -42,7 +43,7 @@ const SideMenu = ({ activeMenu }) => {
         )}
 
         <h5 className="text-gray-950 font-medium leading-6">
-          {user?.fullName || ""}
+          {user.fullName || ""}
         </h5>
       </div>
 
@@ -50,7 +51,7 @@ const SideMenu = ({ activeMenu }) => {
         <button
           key={`menu_${index}`}
           className={`w-full flex items-center gap-4 text-[15px] ${
-            activeMenu === item.label ? "text-white bg-primary" : ""
+            activeMenu == item.label ? "text-white bg-primary" : ""
           } py-3 px-6 rounded-lg mb-3`}
           onClick={() => handleClick(item.path)}
         >

@@ -1,42 +1,45 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
+
 import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import IncomeOverview from "../../components/income/IncomeOverview";
-import IncomeList from "../../components/income/IncomeList";
-import AddIncomeModal from "../../components/income/AddIncomeForm";
-import Modal from "../../components/Modal";
-import AddIncomeForm from "../../components/income/AddIncomeForm";
-import toast from "react-hot-toast";
+import IncomeOverview from "../../components/Expense/ExpenseOverview";
+import ExpenseList from "../../components/Expense/ExpenseList";
+import ExpenseOverview from "../../components/Expense/ExpenseOverview";
+import AddExpenseForm from "../../components/Expense/AddExpenseForm";
 import DeleteAlert from "../../components/DeleteAlert";
+import Modal from "../../components/Modal";
+import toast from "react-hot-toast";
 
-const Income = () => {
+const Expense = () => {
   useUserAuth();
 
-  const [incomeData, setIncomeData] = useState([]);
+  const navigate = useNavigate();
+
+  const [expenseData, setExpenseData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
+  const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
     data: null,
   });
 
-  // Get All Income Details
-  const fetchIncomeDetails = async () => {
+  // Get All Expense Details
+  const fetchExpenseDetails = async () => {
     if (loading) return;
 
     setLoading(true);
 
     try {
       const response = await axiosInstance.get(
-        `${API_PATHS.INCOME.GET_ALL_INCOME}`
+        `${API_PATHS.EXPENSE.GET_ALL_EXPENSE}`
       );
 
       if (response.data) {
-        setIncomeData(response.data);
+        setExpenseData(response.data);
       }
     } catch (error) {
       console.log("Something went wrong. Please try again.", error);
@@ -45,13 +48,13 @@ const Income = () => {
     }
   };
 
-  // Handle Add Income
-  const handleAddIncome = async (income) => {
-    const { source, amount, date, icon } = income;
+  // Handle Add Expense
+  const handleAddExpense = async (expense) => {
+    const { category, amount, date, icon } = expense;
 
     // Validation Checks
-    if (!source.trim()) {
-      toast.error("Source is required.");
+    if (!category.trim()) {
+      toast.error("Category is required.");
       return;
     }
 
@@ -66,45 +69,45 @@ const Income = () => {
     }
 
     try {
-      await axiosInstance.post(API_PATHS.INCOME.ADD_INCOME, {
-        source,
+      await axiosInstance.post(API_PATHS.EXPENSE.ADD_EXPENSE, {
+        category,
         amount,
         date,
         icon,
       });
 
-      setOpenAddIncomeModal(false);
-      toast.success("Income added successfully");
-      fetchIncomeDetails();
+      setOpenAddExpenseModal(false);
+      toast.success("Expense added successfully");
+      fetchExpenseDetails();
     } catch (error) {
       console.error(
-        "Error adding income:",
+        "Error adding expense:",
         error.response?.data?.message || error.message
       );
     }
   };
 
-  // Delete Income
-  const deleteIncome = async (id) => {
+  // Delete Expense
+  const deleteExpense = async (id) => {
     try {
-      await axiosInstance.delete(API_PATHS.INCOME.DELETE_INCOME(id));
+      await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
 
       setOpenDeleteAlert({ show: false, data: null });
-      toast.success("Income details deleted successfully");
-      fetchIncomeDetails();
+      toast.success("Expense details deleted successfully");
+      fetchExpenseDetails();
     } catch (error) {
       console.error(
-        "Error deleting income:",
+        "Error deleting expense:",
         error.response?.data?.message || error.message
       );
     }
   };
 
-  // handle download income details
-  const handleDownloadIncomeDetails = async () => {
+  // handle download expense details
+  const handleDownloadExpenseDetails = async () => {
     try {
       const response = await axiosInstance.get(
-        API_PATHS.INCOME.DOWNLOAD_INCOME,
+        API_PATHS.EXPENSE.DOWNLOAD_EXPENSE,
         {
           responseType: "blob", 
         }
@@ -114,57 +117,58 @@ const Income = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "income_details.xlsx"); 
+      link.setAttribute("download", "expense_details.xlsx"); 
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
       window.URL.revokeObjectURL(url); 
     } catch (error) {
-      console.error("Error downloading income details:", error);
-      toast.error("Failed to download income details. Please try again.");
+      console.error("Error downloading expense details:", error);
+      toast.error("Failed to download expense details. Please try again.");
     }
   };
 
   useEffect(() => {
-    fetchIncomeDetails();
+    fetchExpenseDetails();
+
     return () => {};
   }, []);
 
   return (
-    <DashboardLayout activeMenu="Income">
+    <DashboardLayout activeMenu="Expense">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 gap-6">
           <div className="">
-            <IncomeOverview
-              transactions={incomeData}
-              onAddIncome={() => setOpenAddIncomeModal(true)}
+            <ExpenseOverview
+              transactions={expenseData}
+              onExpenseIncome={() => setOpenAddExpenseModal(true)}
             />
           </div>
 
-          <IncomeList
-            transactions={incomeData}
+          <ExpenseList
+            transactions={expenseData}
             onDelete={(id) => {
               setOpenDeleteAlert({ show: true, data: id });
             }}
-            onDownload={handleDownloadIncomeDetails}
+            onDownload={handleDownloadExpenseDetails}
           />
 
           <Modal
-            isOpen={openAddIncomeModal}
-            onClose={() => setOpenAddIncomeModal(false)}
-            title="Add Income"
+            isOpen={openAddExpenseModal}
+            onClose={() => setOpenAddExpenseModal(false)}
+            title="Add Expense"
           >
-            <AddIncomeForm onAddIncome={handleAddIncome} />
+            <AddExpenseForm onAddExpense={handleAddExpense} />
           </Modal>
 
           <Modal
             isOpen={openDeleteAlert.show}
             onClose={() => setOpenDeleteAlert({ show: false, data: null })}
-            title="Delete Income"
+            title="Delete Expense"
           >
             <DeleteAlert
-              content="Are you sure you want to delete this income detail?"
-              onDelete={() => deleteIncome(openDeleteAlert.data)}
+              content="Are you sure you want to delete this expense detail?"
+              onDelete={() => deleteExpense(openDeleteAlert.data)}
             />
           </Modal>
         </div>
@@ -173,4 +177,4 @@ const Income = () => {
   );
 };
 
-export default Income;
+export default Expense;

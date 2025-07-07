@@ -1,84 +1,78 @@
-# PowerShell script to force rename all files under frontend/src to ensure git recognizes case changes
+# PowerShell script to force rename all files and folders under frontend/src to ensure git recognizes case changes
 
-# Auth pages
-Rename-Item -Path "frontend/src/pages/auth/loginForm.jsx" -NewName "loginForm_tmp.jsx"
-Rename-Item -Path "frontend/src/pages/auth/loginForm_tmp.jsx" -NewName "loginForm.jsx"
-Rename-Item -Path "frontend/src/pages/auth/signUpForm.jsx" -NewName "signUpForm_tmp.jsx"
-Rename-Item -Path "frontend/src/pages/auth/signUpForm_tmp.jsx" -NewName "signUpForm.jsx"
+# Rename folders to lowercase (two-step to avoid conflicts)
+Rename-Item -Path "frontend/src/pages/Auth" -NewName "Auth_tmp"
+Rename-Item -Path "frontend/src/pages/Dashboard" -NewName "Dashboard_tmp"
+Rename-Item -Path "frontend/src/components/Cards" -NewName "Cards_tmp"
+Rename-Item -Path "frontend/src/components/Charts" -NewName "Charts_tmp"
+Rename-Item -Path "frontend/src/components/Dashboard" -NewName "DashboardComp_tmp"
+Rename-Item -Path "frontend/src/components/Expense" -NewName "Expense_tmp"
+Rename-Item -Path "frontend/src/components/Income" -NewName "Income_tmp"
+Rename-Item -Path "frontend/src/components/Inputs" -NewName "Inputs_tmp"
+Rename-Item -Path "frontend/src/components/Layouts" -NewName "Layouts_tmp"
 
-# Dashboard pages
-Rename-Item -Path "frontend/src/pages/dashboard/Expense.jsx" -NewName "Expense_tmp.jsx"
-Rename-Item -Path "frontend/src/pages/dashboard/Expense_tmp.jsx" -NewName "Expense.jsx"
-Rename-Item -Path "frontend/src/pages/dashboard/Income.jsx" -NewName "Income_tmp.jsx"
-Rename-Item -Path "frontend/src/pages/dashboard/Income_tmp.jsx" -NewName "Income.jsx"
-Rename-Item -Path "frontend/src/pages/dashboard/Home.jsx" -NewName "Home_tmp.jsx"
-Rename-Item -Path "frontend/src/pages/dashboard/Home_tmp.jsx" -NewName "Home.jsx"
+# Now rename to final lowercase
+Rename-Item -Path "frontend/src/pages/Auth_tmp" -NewName "auth"
+Rename-Item -Path "frontend/src/pages/Dashboard_tmp" -NewName "dashboard"
+Rename-Item -Path "frontend/src/components/Cards_tmp" -NewName "cards"
+Rename-Item -Path "frontend/src/components/Charts_tmp" -NewName "charts"
+Rename-Item -Path "frontend/src/components/DashboardComp_tmp" -NewName "dashboard"
+Rename-Item -Path "frontend/src/components/Expense_tmp" -NewName "expense"
+Rename-Item -Path "frontend/src/components/Income_tmp" -NewName "income"
+Rename-Item -Path "frontend/src/components/Inputs_tmp" -NewName "inputs"
+Rename-Item -Path "frontend/src/components/Layouts_tmp" -NewName "layouts"
 
-# Components/layouts
-Rename-Item -Path "frontend/src/components/layouts/DashboardLayout.jsx" -NewName "DashboardLayout_tmp.jsx"
-Rename-Item -Path "frontend/src/components/layouts/DashboardLayout_tmp.jsx" -NewName "DashboardLayout.jsx"
-Rename-Item -Path "frontend/src/components/layouts/SideMenu.jsx" -NewName "SideMenu_tmp.jsx"
-Rename-Item -Path "frontend/src/components/layouts/SideMenu_tmp.jsx" -NewName "SideMenu.jsx"
-Rename-Item -Path "frontend/src/components/layouts/Navbar.jsx" -NewName "Navbar_tmp.jsx"
-Rename-Item -Path "frontend/src/components/layouts/Navbar_tmp.jsx" -NewName "Navbar.jsx"
-Rename-Item -Path "frontend/src/components/layouts/AuthLayout.jsx" -NewName "AuthLayout_tmp.jsx"
-Rename-Item -Path "frontend/src/components/layouts/AuthLayout_tmp.jsx" -NewName "AuthLayout.jsx"
+# Rename files in context
+Rename-Item -Path "frontend/src/context/UserContext.jsx" -NewName "userContext.jsx"
 
-# Components/inputs
-Rename-Item -Path "frontend/src/components/inputs/ProfilePhotoSelector.jsx" -NewName "ProfilePhotoSelector_tmp.jsx"
-Rename-Item -Path "frontend/src/components/inputs/ProfilePhotoSelector_tmp.jsx" -NewName "ProfilePhotoSelector.jsx"
-Rename-Item -Path "frontend/src/components/inputs/Input.jsx" -NewName "Input_tmp.jsx"
-Rename-Item -Path "frontend/src/components/inputs/Input_tmp.jsx" -NewName "Input.jsx"
+# Rename files in pages/auth
+Rename-Item -Path "frontend/src/pages/auth/LoginForm.jsx" -NewName "loginForm.jsx"
+Rename-Item -Path "frontend/src/pages/auth/SignUpForm.jsx" -NewName "signUpForm.jsx"
 
-# Components/income
-Rename-Item -Path "frontend/src/components/income/AddIncomeForm.jsx" -NewName "AddIncomeForm_tmp.jsx"
-Rename-Item -Path "frontend/src/components/income/AddIncomeForm_tmp.jsx" -NewName "AddIncomeForm.jsx"
-Rename-Item -Path "frontend/src/components/income/IncomeOverview.jsx" -NewName "IncomeOverview_tmp.jsx"
-Rename-Item -Path "frontend/src/components/income/IncomeOverview_tmp.jsx" -NewName "IncomeOverview.jsx"
-Rename-Item -Path "frontend/src/components/income/IncomeList.jsx" -NewName "IncomeList_tmp.jsx"
-Rename-Item -Path "frontend/src/components/income/IncomeList_tmp.jsx" -NewName "IncomeList.jsx"
+# Rename files in pages/dashboard
+Rename-Item -Path "frontend/src/pages/dashboard/Expense.jsx" -NewName "Expense.jsx"
+Rename-Item -Path "frontend/src/pages/dashboard/Home.jsx" -NewName "Home.jsx"
+Rename-Item -Path "frontend/src/pages/dashboard/Income.jsx" -NewName "Income.jsx"
 
-# Components/expense
-Rename-Item -Path "frontend/src/components/expense/ExpenseOverview.jsx" -NewName "ExpenseOverview_tmp.jsx"
-Rename-Item -Path "frontend/src/components/expense/ExpenseOverview_tmp.jsx" -NewName "ExpenseOverview.jsx"
-Rename-Item -Path "frontend/src/components/expense/AddExpenseForm.jsx" -NewName "AddExpenseForm_tmp.jsx"
-Rename-Item -Path "frontend/src/components/expense/AddExpenseForm_tmp.jsx" -NewName "AddExpenseForm.jsx"
-Rename-Item -Path "frontend/src/components/expense/ExpenseList.jsx" -NewName "ExpenseList_tmp.jsx"
-Rename-Item -Path "frontend/src/components/expense/ExpenseList_tmp.jsx" -NewName "ExpenseList.jsx"
+# Rename files in components/cards
+Rename-Item -Path "frontend/src/components/cards/CharAvatar.jsx" -NewName "CharAvatar.jsx"
+Rename-Item -Path "frontend/src/components/cards/InfoCard.jsx" -NewName "InfoCard.jsx"
+Rename-Item -Path "frontend/src/components/cards/TransactionInfoCard.jsx" -NewName "TransactionInfoCard.jsx"
 
-# Components/dashboard
-Rename-Item -Path "frontend/src/components/dashboard/RecentIncome.jsx" -NewName "RecentIncome_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/RecentIncome_tmp.jsx" -NewName "RecentIncome.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/ExpenseTransactions.jsx" -NewName "ExpenseTransactions_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/ExpenseTransactions_tmp.jsx" -NewName "ExpenseTransactions.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/FinanceOverview.jsx" -NewName "FinanceOverview_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/FinanceOverview_tmp.jsx" -NewName "FinanceOverview.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/Last30DaysExpenses.jsx" -NewName "Last30DaysExpenses_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/Last30DaysExpenses_tmp.jsx" -NewName "Last30DaysExpenses.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/RecentIncomeWithChart.jsx" -NewName "RecentIncomeWithChart_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/RecentIncomeWithChart_tmp.jsx" -NewName "RecentIncomeWithChart.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/RecentTransactions.jsx" -NewName "RecentTransactions_tmp.jsx"
-Rename-Item -Path "frontend/src/components/dashboard/RecentTransactions_tmp.jsx" -NewName "RecentTransactions.jsx"
+# Rename files in components/charts
+Rename-Item -Path "frontend/src/components/charts/CustomBarChart.jsx" -NewName "CustomBarChart.jsx"
+Rename-Item -Path "frontend/src/components/charts/CustomLegend.jsx" -NewName "CustomLegend.jsx"
+Rename-Item -Path "frontend/src/components/charts/CustomLineChart.jsx" -NewName "CustomLineChart.jsx"
+Rename-Item -Path "frontend/src/components/charts/CustomPieChart.jsx" -NewName "CustomPieChart.jsx"
+Rename-Item -Path "frontend/src/components/charts/CustomTooltip.jsx" -NewName "CustomTooltip.jsx"
 
-# Components/charts
-Rename-Item -Path "frontend/src/components/charts/CustomBarChart.jsx" -NewName "CustomBarChart_tmp.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomBarChart_tmp.jsx" -NewName "CustomBarChart.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomLegend.jsx" -NewName "CustomLegend_tmp.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomLegend_tmp.jsx" -NewName "CustomLegend.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomLineChart.jsx" -NewName "CustomLineChart_tmp.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomLineChart_tmp.jsx" -NewName "CustomLineChart.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomTooltip.jsx" -NewName "CustomTooltip_tmp.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomTooltip_tmp.jsx" -NewName "CustomTooltip.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomPieChart.jsx" -NewName "CustomPieChart_tmp.jsx"
-Rename-Item -Path "frontend/src/components/charts/CustomPieChart_tmp.jsx" -NewName "CustomPieChart.jsx"
+# Rename files in components/dashboard
+Rename-Item -Path "frontend/src/components/dashboard/ExpenseTransactions.jsx" -NewName "ExpenseTransactions.jsx"
+Rename-Item -Path "frontend/src/components/dashboard/FinanceOverview.jsx" -NewName "FinanceOverview.jsx"
+Rename-Item -Path "frontend/src/components/dashboard/Last30DaysExpenses.jsx" -NewName "Last30DaysExpenses.jsx"
+Rename-Item -Path "frontend/src/components/dashboard/RecentIncome.jsx" -NewName "RecentIncome.jsx"
+Rename-Item -Path "frontend/src/components/dashboard/RecentIncomeWithChart.jsx" -NewName "RecentIncomeWithChart.jsx"
+Rename-Item -Path "frontend/src/components/dashboard/RecentTransactions.jsx" -NewName "RecentTransactions.jsx"
 
-# Components/cards
-Rename-Item -Path "frontend/src/components/cards/CharAvatar.jsx" -NewName "CharAvatar_tmp.jsx"
-Rename-Item -Path "frontend/src/components/cards/CharAvatar_tmp.jsx" -NewName "CharAvatar.jsx"
-Rename-Item -Path "frontend/src/components/cards/InfoCard.jsx" -NewName "InfoCard_tmp.jsx"
-Rename-Item -Path "frontend/src/components/cards/InfoCard_tmp.jsx" -NewName "InfoCard.jsx"
-Rename-Item -Path "frontend/src/components/cards/TransactionInfoCard.jsx" -NewName "TransactionInfoCard_tmp.jsx"
-Rename-Item -Path "frontend/src/components/cards/TransactionInfoCard_tmp.jsx" -NewName "TransactionInfoCard.jsx"
+# Rename files in components/expense
+Rename-Item -Path "frontend/src/components/expense/AddExpenseForm.jsx" -NewName "AddExpenseForm.jsx"
+Rename-Item -Path "frontend/src/components/expense/ExpenseList.jsx" -NewName "ExpenseList.jsx"
+Rename-Item -Path "frontend/src/components/expense/ExpenseOverview.jsx" -NewName "ExpenseOverview.jsx"
+
+# Rename files in components/income
+Rename-Item -Path "frontend/src/components/income/AddIncomeForm.jsx" -NewName "AddIncomeForm.jsx"
+Rename-Item -Path "frontend/src/components/income/IncomeList.jsx" -NewName "IncomeList.jsx"
+Rename-Item -Path "frontend/src/components/income/IncomeOverview.jsx" -NewName "IncomeOverview.jsx"
+
+# Rename files in components/inputs
+Rename-Item -Path "frontend/src/components/inputs/Input.jsx" -NewName "Input.jsx"
+Rename-Item -Path "frontend/src/components/inputs/ProfilePhotoSelector.jsx" -NewName "ProfilePhotoSelector.jsx"
+
+# Rename files in components/layouts
+Rename-Item -Path "frontend/src/components/layouts/AuthLayout.jsx" -NewName "AuthLayout.jsx"
+Rename-Item -Path "frontend/src/components/layouts/DashboardLayout.jsx" -NewName "DashboardLayout.jsx"
+Rename-Item -Path "frontend/src/components/layouts/Navbar.jsx" -NewName "Navbar.jsx"
+Rename-Item -Path "frontend/src/components/layouts/SideMenu.jsx" -NewName "SideMenu.jsx"
 
 # Root components
 Rename-Item -Path "frontend/src/components/DeleteAlert.jsx" -NewName "DeleteAlert_tmp.jsx"
@@ -87,10 +81,6 @@ Rename-Item -Path "frontend/src/components/EmojiPickerPopup.jsx" -NewName "Emoji
 Rename-Item -Path "frontend/src/components/EmojiPickerPopup_tmp.jsx" -NewName "EmojiPickerPopup.jsx"
 Rename-Item -Path "frontend/src/components/Modal.jsx" -NewName "Modal_tmp.jsx"
 Rename-Item -Path "frontend/src/components/Modal_tmp.jsx" -NewName "Modal.jsx"
-
-# Context
-Rename-Item -Path "frontend/src/context/userContext.jsx" -NewName "userContext_tmp.jsx"
-Rename-Item -Path "frontend/src/context/userContext_tmp.jsx" -NewName "userContext.jsx"
 
 # Hooks
 Rename-Item -Path "frontend/src/hooks/useUserAuth.js" -NewName "useUserAuth_tmp.js"

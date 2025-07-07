@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../hooks/useUserAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import IncomeOverview from "../../components/Income/IncomeOverview";
-import IncomeList from "../../components/Income/IncomeList";
-import AddIncomeModal from "../../components/Income/AddIncomeForm";
+import IncomeOverview from "../../components/income/IncomeOverview";
+import IncomeList from "../../components/income/IncomeList";
+import AddIncomeModal from "../../components/income/AddIncomeForm";
 import Modal from "../../components/Modal";
-import AddIncomeForm from "../../components/Income/AddIncomeForm";
+import AddIncomeForm from "../../components/income/AddIncomeForm";
 import toast from "react-hot-toast";
 import DeleteAlert from "../../components/DeleteAlert";
 

@@ -1,56 +1,78 @@
 # 💰 Expense Tracker App (MERN + TailwindCSS)
 
-I am excited to share that I’ve started working on a fully responsive Expense Tracker App using the **MERN (MongoDB, Express, React, Node.js)** stack, styled with **Tailwind CSS**. This application helps users seamlessly manage their personal finances by tracking incomes and expenses, visualizing data through interactive charts, and exporting records for analysis.
+A fully responsive Expense Tracker App built with the **MERN stack** (MongoDB, Express.js, React.js, Node.js) and styled using **Tailwind CSS**. This app allows users to manage personal finances by tracking incomes and expenses, analyzing trends through interactive charts, and exporting data for further insights.
+
+🔗 **Live App**: https://expense-tracker-app-client.onrender.com
 
 ---
 
 ## 🚀 Features Implemented
 
-### ✅ Authentication
-- Secure **user login & signup** with **JWT-based authentication**.
+- ✅ **Authentication**  
+  Secure login & signup with **JWT-based authentication**.
 
-### 📊 Dashboard Overview
-- Summary cards showing **Total Balance**, **Income**, and **Expenses**.
+- 📊 **Dashboard Overview**  
+  Summary cards showing **Total Balance**, **Income**, and **Expenses**.
 
-### 💵 Income Management
-- Add, view, delete, and **export income records to Excel**.
+- 💵 **Income Management**  
+  Add, view, delete, and **export income records** to Excel.
 
-### 🧾 Expense Management
-- Add, view, delete, and **export expenses**.
-- Category-based expense tracking for better insights.
+- 🧾 **Expense Management**  
+  Add, view, delete, and **export expenses** with **category-based tracking**.
 
-### 📈 Interactive Charts
-- Visual analytics using **Bar**, **Pie**, and **Line** charts (e.g., Chart.js or Recharts).
+- 📈 **Interactive Charts**  
+  Visual analytics using **Bar**, **Pie**, and **Line charts** (Chart.js / Recharts).
 
-### 🕒 Recent Transactions
-- Quick access to **latest income and expense records**.
+- 🕒 **Recent Transactions**  
+  View the latest income and expense entries.
 
-### 📥 Reports
-- **Download complete income and expense reports** in **Excel format**.
+- 📥 **Reports**  
+  Download full **income & expense reports** in Excel format.
 
-### 📱 Mobile Responsive
-- Fully responsive UI built with **Tailwind CSS**.
-- Works flawlessly on **desktop, tablet, and mobile devices**.
+- 📱 **Mobile Responsive**  
+  Fully responsive UI powered by Tailwind CSS.  
+  Works smoothly on desktop, tablet, and mobile.
 
-### 🧭 Intuitive Navigation
-- **Sidebar menu** for easy access to Dashboard, Income, Expenses, and Logout.
+- 🧭 **Intuitive Navigation**  
+  Sidebar menu with access to Dashboard, Income, Expenses, and Logout.
 
-### ❌ Delete Functionality
-- **Hover-to-delete** option on income and expense cards for easy management.
+- ❌ **Delete Functionality**  
+  Hover-to-delete functionality on income and expense cards.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Tailwind CSS, Axios
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB (Mongoose)
-- **Authentication:** JWT (JSON Web Token)
-- **Charting Library:** Chart.js / Recharts
-- **Excel Export:** SheetJS / xlsx
+**Frontend**  
+- React.js  
+- Tailwind CSS  
+- Axios  
+
+**Backend**  
+- Node.js  
+- Express.js  
+
+**Database**  
+- MongoDB (Mongoose)
+
+**Authentication**  
+- JWT (JSON Web Token)
+
+**Charting Library**  
+- Chart.js / Recharts
+
+**Excel Export**  
+- SheetJS / xlsx
 
 ---
 
 ## 📦 Project Status
 
-🔨 **In Development** – I’ve started implementing all major modules and am actively adding new features. Stay tuned for live previews and upcoming updates!
+✅ **Completed** – All key modules and features are implemented. The app is fully functional and deployed online.
+
+---
+
+## 📚 References & Resources
+
+- Time to Program - Frontend/backend tutorials  
+- Stack Overflow – Debugging and implementation support
